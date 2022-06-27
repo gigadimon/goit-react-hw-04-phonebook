@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { nanoid } from 'nanoid';
 
 import { ContactForm } from 'components/ContactForm';
@@ -17,7 +17,7 @@ function App() {
   const [filter, setFilter] = useState('');
   const [firstRender, setFirstRender] = useState(true);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const localContacts = JSON.parse(localStorage.getItem('contacts'));
     localContacts && setContacts([...localContacts]);
   }, []);
